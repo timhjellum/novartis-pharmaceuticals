@@ -1,53 +1,4 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Case Study">
-    <meta name="description" content="Case Study">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="30 days">
-<title>Novartis Pharmaceuticals - Portfolio - Case Study - Tim (Timber) Hjellum</title>
-<!-- Favicons -->
-		<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="/images/favicon-16x16.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="/images/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="96x96"
-			href="/images/favicon-96x96.png"
-		/>
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/images/apple-touch-icon.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="192x192"
-			href="/images/android-chrome-192x192.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="512x512"
-			href="/images/android-chrome-512x512.png"
-		/>
-		<link rel="manifest" href="/site.webmanifest" />
+<title>One Standard, Every Site</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
@@ -206,9 +157,91 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
     font-size:12px; color:var(--text-dim);
   }
+
+  /* ===== gallery ===== */
+  .gal-section{ padding:clamp(56px,9vw,72px) clamp(20px,6vw,64px); border-top:1px solid var(--line); text-align:center; }
+  .gal-section .kicker{ margin-bottom:14px; display:block; }
+  .gal-section h2{ font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 12px; color:var(--text); }
+  .gal-sub{ color:var(--text-dim); font-size:14px; margin:0 0 36px; }
+
+  .gal-grid{
+    display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px;
+    max-width:1120px; margin:0 auto; text-align:left;
+  }
+  @media (max-width:900px){ .gal-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+  @media (max-width:520px){ .gal-grid{ grid-template-columns:1fr; } }
+
+  .gal-item{
+    all:unset; cursor:pointer; display:block;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    transition:transform .3s cubic-bezier(.16,1,.3,1), border-color .3s ease, box-shadow .3s ease;
+  }
+  .gal-item:hover, .gal-item:focus-visible{
+    transform:translateY(-4px); border-color:var(--accent); box-shadow:0 16px 32px -20px rgba(0,0,0,.5);
+  }
+  .gal-item:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .gal-thumb{
+    aspect-ratio:4/3; position:relative;
+    background:repeating-linear-gradient(135deg, transparent 0 8px, var(--line) 8px 9px);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .gal-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .gal-placeholder-mark{
+    font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;
+    font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-dim); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:4px 10px;
+  }
+  .gal-cap{ padding:14px 16px 16px; }
+  .gal-cap-title{ display:block; font-weight:700; font-size:14px; color:var(--text); margin-bottom:4px; }
+  .gal-cap-desc{ display:block; font-size:12.5px; line-height:1.5; color:var(--text-dim); }
+
+  .gal-lightbox{
+    position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center;
+    padding:5vh 4vw; background:rgba(0,0,0,.82); opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  .gal-lightbox.is-open{ opacity:1; pointer-events:auto; }
+  .gal-lightbox-dialog{
+    position:relative; max-width:min(920px,92vw); width:100%;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; overflow:hidden;
+    transform:scale(.96) translateY(10px); transition:transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .gal-lightbox.is-open .gal-lightbox-dialog{ transform:scale(1) translateY(0); }
+  .gal-lightbox-frame{
+    aspect-ratio:16/10; position:relative; display:flex; align-items:center; justify-content:center;
+    background:repeating-linear-gradient(135deg, transparent 0 8px, var(--line) 8px 9px);
+  }
+  .gal-lightbox-frame img{ width:100%; height:100%; object-fit:cover; display:none; position:absolute; inset:0; }
+  .gal-lightbox-placeholder{
+    font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;
+    font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text-dim); background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:6px 14px;
+  }
+  .gal-lightbox-meta{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 20px; border-top:1px solid var(--line);
+  }
+  .gal-lightbox-meta .gal-cap-title{ font-size:15px; }
+  .gal-lightbox-counter{
+    font-family:ui-monospace,"SFMono-Regular",Consolas,monospace; font-size:12px; color:var(--text-dim); white-space:nowrap;
+  }
+  .gal-lightbox-close, .gal-lightbox-nav{
+    position:absolute; width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--line); background:var(--bg); color:var(--text);
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition:background .15s ease, transform .15s ease, border-color .15s ease, color .15s ease;
+    font-size:18px; line-height:1;
+  }
+  .gal-lightbox-close{ top:12px; right:12px; z-index:2; }
+  .gal-lightbox-nav{ top:50%; transform:translateY(-50%); z-index:2; }
+  .gal-lightbox-prev{ left:12px; }
+  .gal-lightbox-next{ right:12px; }
+  .gal-lightbox-close:hover, .gal-lightbox-nav:hover:not(:disabled){ border-color:var(--accent); color:var(--accent); }
+  .gal-lightbox-nav:disabled{ opacity:.3; cursor:not-allowed; }
+  @media (max-width:640px){ .gal-lightbox-dialog{ max-width:94vw; } }
+
 </style>
-</head>
-<body>
+
 <div class="page">
 
   <div class="topbar">
@@ -254,6 +287,66 @@
     </div>
   </div>
 
+  <div class="gal-section">
+    <span class="kicker">Selected Screens</span>
+    <h2 class="display">The application</h2>
+    <p class="gal-sub">Click a screen to enlarge.</p>
+    <div class="gal-grid" id="galGrid">
+
+      <button type="button" class="gal-item" data-index="0">
+        <span class="gal-thumb"><span class="gal-placeholder-mark">Preview 01</span></span>
+        <span class="gal-cap">
+          <span class="gal-cap-title">Site Template</span>
+          <span class="gal-cap-desc">Governed page layout applied consistently across every migrated site.</span>
+        </span>
+      </button>
+
+      <button type="button" class="gal-item" data-index="1">
+        <span class="gal-thumb"><span class="gal-placeholder-mark">Preview 02</span></span>
+        <span class="gal-cap">
+          <span class="gal-cap-title">Content Type Picker</span>
+          <span class="gal-cap-desc">Editors choose from pre-approved content types before a page is built.</span>
+        </span>
+      </button>
+
+      <button type="button" class="gal-item" data-index="2">
+        <span class="gal-thumb"><span class="gal-placeholder-mark">Preview 03</span></span>
+        <span class="gal-cap">
+          <span class="gal-cap-title">Access &amp; Permissions</span>
+          <span class="gal-cap-desc">Role-based audience targeting scoped by security group.</span>
+        </span>
+      </button>
+
+      <button type="button" class="gal-item" data-index="3">
+        <span class="gal-thumb"><span class="gal-placeholder-mark">Preview 04</span></span>
+        <span class="gal-cap">
+          <span class="gal-cap-title">Style Guide Reference</span>
+          <span class="gal-cap-desc">Living UI guidelines editors check against before publishing.</span>
+        </span>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="gal-lightbox" id="galLightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="galLightboxTitle">
+    <div class="gal-lightbox-dialog">
+      <button type="button" class="gal-lightbox-close" id="galLightboxClose" aria-label="Close">&times;</button>
+      <button type="button" class="gal-lightbox-nav gal-lightbox-prev" id="galLightboxPrev" aria-label="Previous screen">&larr;</button>
+      <button type="button" class="gal-lightbox-nav gal-lightbox-next" id="galLightboxNext" aria-label="Next screen">&rarr;</button>
+      <div class="gal-lightbox-frame">
+        <img id="galLightboxImg" src="" alt="" />
+        <span class="gal-lightbox-placeholder" id="galLightboxPlaceholder">Screen preview coming soon</span>
+      </div>
+      <div class="gal-lightbox-meta">
+        <div>
+          <span class="gal-cap-title" id="galLightboxTitle"></span><br>
+          <span class="gal-cap-desc" id="galLightboxDesc"></span>
+        </div>
+        <span class="gal-lightbox-counter" id="galLightboxCounter"></span>
+      </div>
+    </div>
+  </div>
+
   <div class="skills">
     <span class="kicker">Skills &amp; Technologies</span>
     <h2 class="display">The toolkit behind it</h2>
@@ -281,5 +374,80 @@
     <div>UX Design &middot; Interactive Design &middot; UI Development</div>
   </footer>
 </div>
-</body>
-</html>
+
+
+<script>
+  (function(){
+    var items = Array.prototype.slice.call(document.querySelectorAll('#galGrid .gal-item'));
+    if (!items.length) return;
+    var lightbox = document.getElementById('galLightbox');
+    var imgEl = document.getElementById('galLightboxImg');
+    var placeholderEl = document.getElementById('galLightboxPlaceholder');
+    var titleEl = document.getElementById('galLightboxTitle');
+    var descEl = document.getElementById('galLightboxDesc');
+    var counterEl = document.getElementById('galLightboxCounter');
+    var closeBtn = document.getElementById('galLightboxClose');
+    var prevBtn = document.getElementById('galLightboxPrev');
+    var nextBtn = document.getElementById('galLightboxNext');
+    var current = 0;
+    var lastFocused = null;
+
+    function render(){
+      var el = items[current];
+      var title = el.querySelector('.gal-cap-title').textContent;
+      var desc = el.querySelector('.gal-cap-desc').textContent;
+      var srcImg = el.querySelector('img');
+      if (srcImg) {
+        imgEl.src = srcImg.currentSrc || srcImg.src;
+        imgEl.alt = srcImg.alt || title;
+        imgEl.style.display = 'block';
+        placeholderEl.style.display = 'none';
+      } else {
+        imgEl.removeAttribute('src');
+        imgEl.style.display = 'none';
+        placeholderEl.style.display = 'flex';
+      }
+      titleEl.textContent = title;
+      descEl.textContent = desc;
+      counterEl.textContent = (current + 1) + ' / ' + items.length;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === items.length - 1;
+    }
+    function open(index){
+      current = index;
+      lastFocused = document.activeElement;
+      render();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+    function close(){
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown);
+      if (lastFocused) lastFocused.focus();
+    }
+    function go(delta){
+      var next = current + delta;
+      if (next < 0 || next >= items.length) return;
+      current = next;
+      render();
+    }
+    function onKeydown(e){
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') go(1);
+      if (e.key === 'ArrowLeft') go(-1);
+    }
+
+    items.forEach(function(el, i){
+      el.addEventListener('click', function(){ open(i); });
+    });
+    closeBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', function(){ go(-1); });
+    nextBtn.addEventListener('click', function(){ go(1); });
+    lightbox.addEventListener('click', function(e){ if (e.target === lightbox) close(); });
+  })();
+</script>
