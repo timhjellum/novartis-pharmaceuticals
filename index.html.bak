@@ -198,7 +198,7 @@
     <div class="steps">
       <div class="card"><div class="num">01</div><div class="title">Stakeholder Discovery</div><div class="desc">Worked directly with business stakeholders to understand their vision and translate it into a design that met their expectations.</div></div>
       <div class="card"><div class="num">02</div><div class="title">Requirements Gathering</div><div class="desc">Facilitated requirements-gathering sessions with stakeholders across public sites and internal intranets.</div></div>
-      <div class="card"><div class="num">03</div><div class="title">Sitemaps &amp; Wireframes</div><div class="desc">Built highly detailed sitemaps and wireframes to guide the migration, site by site.</div></div>
+      <div class="card"><div class="num">03</div><div class="title">Information Architecture (IA)</div><div class="desc">Built highly detailed sitemaps and wireframes to guide the migration, site by site.</div></div>
       <div class="card"><div class="num">04</div><div class="title">Masterpage &amp; Layout Design</div><div class="desc">Created pixel-perfect masterpages and page layouts matching existing design standards.</div></div>
       <div class="card"><div class="num">05</div><div class="title">Web Parts &amp; Apps</div><div class="desc">Designed reusable web parts and apps consistent with Novartis's branding requirements.</div></div>
       <div class="card"><div class="num">06</div><div class="title">Governance Documentation</div><div class="desc">Established governance documents, including user-interface style guidelines.</div></div>
@@ -211,14 +211,20 @@
     <span class="kicker">Skills &amp; Technologies</span>
     <h2 class="display">The toolkit behind it</h2>
     <div class="skill-tags">
-      <span class="tag">Business Requirements</span>
-      <span class="tag">Functional Specifications</span>
-      <span class="tag">Wireframes</span>
-      <span class="tag">Storyboards</span>
+      <span class="tag">Product Strategy</span>
+<span class="tag">Discovery</span>
+<span class="tag">Stakeholder Alignment</span>
+<span class="tag">Requirements Analysis</span>
+      
+      <span class="tag">Information Architecture (IA)</span>
+<span class="tag">Wireframing</span>
+<span class="tag">Prototyping</span>
+<span class="tag">Accessibility / WCAG</span>
+      
       <span class="tag">Hi / Lo-Fidelity Prototyping</span>
-      <span class="tag">Use-Case &amp; Scenarios</span>
-      <span class="tag">Sitemaps</span>
-      <span class="tag">Taxonomies</span>
+      
+      
+      
     </div>
   </div>
 
